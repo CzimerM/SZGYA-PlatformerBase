@@ -827,9 +827,10 @@ GameObject:
   - component: {fileID: 1657174646}
   - component: {fileID: 1657174645}
   - component: {fileID: 1657174644}
+  - component: {fileID: 1657174647}
   m_Layer: 6
   m_Name: spikeyRock
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -940,13 +941,26 @@ Transform:
   m_GameObject: {fileID: 1657174643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.97, y: -3.55, z: 0}
+  m_LocalPosition: {x: -0.97, y: -3.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1154450739}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1657174647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657174643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed50fa9727e21b42910a236fc47803f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
 --- !u!1 &1749890334
 GameObject:
   m_ObjectHideFlags: 0
