@@ -3,7 +3,7 @@ using UnityEngine;
 public class MissleHit : MonoBehaviour
 {
     [SerializeField] private float damage = 1f;
-    [SerializeField] private GameObject explosionEcffect;
+    [SerializeField] private GameObject explosionEffect;
 
     private ProjectileController controller;
 
@@ -17,8 +17,13 @@ public class MissleHit : MonoBehaviour
         if (target.gameObject.layer == LayerMask.NameToLayer("Hitable"))
         {
             controller.Stop();
-            Instantiate(explosionEcffect, transform.position, transform.rotation);
+            Instantiate(explosionEffect, transform.position, transform.rotation);
             Destroy(gameObject);
+
+            if(target.tag == "Enemy")
+            {
+
+            }
         }
     }
 }
