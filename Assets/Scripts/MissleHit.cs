@@ -22,7 +22,8 @@ public class MissleHit : MonoBehaviour
 
             if(target.tag == "Enemy")
             {
-
+                EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
+                enemyHealth.TakeDamage(damage);
             }
         }
     }
