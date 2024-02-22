@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
@@ -10,32 +8,26 @@ public class EnemyDamage : MonoBehaviour
 
     private float nextDamage;
 
-    void Start()
+    private void Start()
     {
         nextDamage = 0f;
     }
 
-
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D player)
     {
-        if (collision.CompareTag("Player") && nextDamage < Time.time) 
+        if (player.CompareTag("Player") && nextDamage < Time.time)
         {
-            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            PlayerHealth playerHealth = player.gameObject.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(damage);
             nextDamage = Time.time + damageRate;
-            PushBack(collision.transform);
-
+            PushBack(player.transform);
         }
     }
 
-    private void PushBack(Transform target)
+    private void PushBack(Transform playerTransform)
     {
-        Vector2 pushDirection = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
-        Debug.Log(pushDirection);
-        Rigidbody2D targetRB = target.gameObject.GetComponent<Rigidbody2D>();
-        targetRB.velocity = Vector2.zero;
-        targetRB.AddForce(pushDirection * pushForce, ForceMode2D.Impulse);
-        targetRB.AddForce(new Vector2(20, 0), ForceMode2D.Impulse);
-        
+        Rigidbody2D playerRigidbody = playerTransform.gameObject.GetComponent<Rigidbody2D>();
+        playerRigidbody.velocity = Vector2.zero;
+        playerRigidbody.AddForce(transform.up * pushForce, ForceMode2D.Impulse);
     }
 }

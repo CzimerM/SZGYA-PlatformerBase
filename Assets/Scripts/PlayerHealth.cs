@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -9,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float currentHealth;
 
-    void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
     }
@@ -18,13 +16,14 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         Instantiate(bloodDropsFX, transform.position, transform.rotation);
+
         if (currentHealth <= 0)
         {
-            Die();
+            MakeDead();
         }
     }
 
-    private void Die()
+    private void MakeDead()
     {
         Destroy(gameObject);
     }

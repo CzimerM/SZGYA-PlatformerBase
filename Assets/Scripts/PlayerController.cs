@@ -48,8 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         float move = Input.GetAxis("Horizontal");
         animator.SetFloat("speed", Mathf.Abs(move));
-        //rigidbody2d.velocity = new(move * maxSpeed, rigidbody2d.velocity.y);
-        rigidbody2d.AddForce(new Vector2(move * maxSpeed, 0), ForceMode2D.Impulse);
+        rigidbody2d.velocity = new(move * maxSpeed, rigidbody2d.velocity.y);
         if ((move < 0 && isFacingRight) || (move > 0 && !isFacingRight)) Flip();
 
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, .15f, groundLayer);

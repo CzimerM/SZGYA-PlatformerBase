@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 5;
+    [SerializeField] private float maxHealth = 5f;
     private float currentHealth;
 
     private void Start()
@@ -15,13 +13,13 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0 )
+        if (currentHealth <= 0)
         {
-            Die();
+            MakeDeath();
         }
     }
 
-    private void Die()
+    private void MakeDeath()
     {
         Destroy(gameObject);
     }

@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MissleHit : MonoBehaviour
 {
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private float damage = 2f;
+    [SerializeField] private GameObject explosionEcffect;
 
     private ProjectileController controller;
 
@@ -17,10 +17,10 @@ public class MissleHit : MonoBehaviour
         if (target.gameObject.layer == LayerMask.NameToLayer("Hitable"))
         {
             controller.Stop();
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Instantiate(explosionEcffect, transform.position, transform.rotation);
             Destroy(gameObject);
 
-            if(target.tag == "Enemy")
+            if (target.CompareTag("Enemy"))
             {
                 EnemyHealth enemyHealth = target.gameObject.GetComponent<EnemyHealth>();
                 enemyHealth.TakeDamage(damage);
