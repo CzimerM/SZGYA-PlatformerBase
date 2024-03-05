@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        if (target == null) return;
         Vector3 targetPos = target.localScale.x > 0
              ? target.position + offsetRight
              : target.position + offsetLeft;
