@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private float nextFire;
 
+
     private void Start()
     {
         animator = GetComponent<Animator>();

@@ -9,12 +9,16 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Image damageFlashImg;
     [SerializeField] private float damageTime = 0.5f;
 
+    [SerializeField] private AudioClip playerGrunt;
+
     private float currentHealth;
     private bool getDamage;
     private Color dmgColor;
+    private AudioSource audioSrc;
 
     private void Start()
     {
+        audioSrc = GetComponent<AudioSource>();
         getDamage = false;
         dmgColor = new Color(255, 255, 255, 0.7f);
         currentHealth = maxHealth;
@@ -24,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        audioSrc.PlayOneShot(playerGrunt);
+
         getDamage = true;
         currentHealth -= damage;
         healthBar.value = currentHealth;
