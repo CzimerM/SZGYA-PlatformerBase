@@ -4,30 +4,30 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float delay = 1f;
+    [SerializeField] private float viewDistance = 14f;
 
-    private Vector3 offsetRight;
-    private Vector3 offsetLeft;
+    private Vector3 offset;
     private float lowY;
     private bool facingRight;
-    private float difX;
+ 
 
     private void Start()
     {
         lowY = transform.position.y;
-        difX = transform.position.x - target.position.x;
-
-        offsetRight = transform.position - target.position;
-        offsetLeft = transform.position - target.position;
-        offsetLeft.x -= 2 * difX;
-        facingRight = true;
+        offset = transform.position - target.position;
+        offset.x -= viewDistance / 2;
     }
 
     private void FixedUpdate()
     {
         if (target == null) return;
-        Vector3 targetPos = target.localScale.x > 0
-             ? target.position + offsetRight
-             : target.position + offsetLeft;
+        if (facingRight != target.localScale.x < 0)
+        {
+            facingRight = target.localScale.x < 0;
+            offset.x += facingRight ? -viewDistance : viewDistance;
+        }
+
+        Vector3 targetPos = target.position + offset;
 
         transform.position = Vector3.Lerp(
             transform.position,
