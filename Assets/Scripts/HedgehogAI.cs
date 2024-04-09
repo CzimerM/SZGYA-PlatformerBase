@@ -3,7 +3,6 @@ using UnityEngine;
 public class HedgehogAI : MonoBehaviour
 {
     [SerializeField] float runSpeed = 7f;
-    [SerializeField] GameObject graphics;
     [SerializeField] private float chargeDelay = 0.5f;
     [SerializeField] private float flipTime = 2f;
 
@@ -40,11 +39,11 @@ public class HedgehogAI : MonoBehaviour
     private void FlipFacing()
     {
         facingRight = !facingRight;
-        graphics.transform.localScale =
+        transform.localScale =
             new Vector3(
-                graphics.transform.localScale.x * -1,
-                graphics.transform.localScale.y,
-                graphics.transform.localScale.z);
+                transform.localScale.x * -1,
+                transform.localScale.y,
+                transform.localScale.z);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -73,7 +72,6 @@ public class HedgehogAI : MonoBehaviour
         if (isCharging && other.CompareTag("Player") && Time.time > startChargeTime)
         {
             rigidbody2d.AddForce((facingRight ? Vector3.right : Vector3.left) * runSpeed);
-
         }
     }
 }
