@@ -772,7 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1555841631}
   delay: 1
-  viewDistance: 14
+  viewDistance: 8
 --- !u!82 &519420034
 AudioSource:
   m_ObjectHideFlags: 0
