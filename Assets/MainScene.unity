@@ -1530,7 +1530,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 7
-  graphics: {fileID: 770202678}
   chargeDelay: 0.5
   flipTime: 2.5
 --- !u!58 &1074489347
@@ -1863,7 +1862,7 @@ Rigidbody2D:
     serializedVersion: 2
     m_Bits: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &1555841628
