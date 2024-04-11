@@ -41,6 +41,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void Heal(float amount)
+    {
+        if (currentHealth < maxHealth)
+        {
+            if (amount + currentHealth <= maxHealth) currentHealth += amount;
+            else currentHealth = maxHealth;
+            healthBar.value = currentHealth;
+        }
+    }
+
     private void MakeDead()
     {
         damageFlashImg.color = dmgColor;
